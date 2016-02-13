@@ -10,7 +10,7 @@
 
 <input type="text" ng-model="search" placeholder="filter" />
 <div class="links">
-    <div class="link fx-fade-up fx-speed-400 fx-easing-strong" ng-repeat="link in data.links | filter:search | orderBy:'created_at'">
+    <div class="link fx-fade-up fx-speed-400 fx-easing-strong" ng-repeat="link in data.links | filter:search | orderBy:'-visits'">
         <img src='../assets/redirect_icon.png' />
         <div class='info'>
           <div class='visits'>
