@@ -32,6 +32,7 @@ module.exports = {
     });
   },
 
+//New Link Path
   newLink: function (req, res, next) {
     var url = req.body.url;
     console.log(req.body);

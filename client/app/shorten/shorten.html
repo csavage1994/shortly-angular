@@ -1,6 +1,18 @@
 <div id='container'>
-<!-- Your code here -->
+    <!-- Your code here -->
 
+    <div class='navigation'>
+        <ul>
+            <li><a href='#/links' class='index'>All Links</a></li>
+            <li><a href='#/shorten' class='create'>Shorten</a></li>
+            <li><a href='#/logout' class='logout'>Logout</a></li>
+        </ul>
+    </div>
+
+      <form name='shortlyForm' ng-submit="addLink()">
+        <input class='text' type='url' ng-model='link.url' name='link'>
+        <input type='submit' value='Shorten'>
+      </form>
+<!--       <img class='spinner' src='../assets/spiffygif_46x46.gif'> -->
+    <div class='message'></div>
 </div>
-
-
