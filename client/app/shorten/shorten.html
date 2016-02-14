@@ -5,14 +5,19 @@
         <ul>
             <li><a href='#/links' class='index'>All Links</a></li>
             <li><a href='#/shorten' class='create'>Shorten</a></li>
-            <li><a href='#/logout' class='logout'>Logout</a></li>
+            <li class='logout'><a href='#/logout' ng-click="signout()">Logout</a></li>
         </ul>
     </div>
 
-      <form name='shortlyForm' ng-submit="addLink()">
-        <input class='text' type='url' ng-model='link.url' name='link'>
-        <input type='submit' value='Shorten'>
+      <form name='shortlyForm' ng-submit="addLink()" novalidate>
+        <input class='text' type='url' ng-model='link.url' name='link' placeholder="Enter your url here" required ng-class="{'error': shortlyForm.$invalid && shortlyForm.$dirty}"/>
+        <input type='submit' value='Shorten'/>
       </form>
-    <img class='spinner' src='../assets/spiffygif_46x46.gif'>
-    <div class='message'></div>
+    <img ng-if='loading'class='spinner' src='../assets/spiffygif_46x46.gif'>
+    <div ng-if='shortlyForm.link.$error.required && shortlyForm.$dirty' class='message'>
+        <h2>Url required</h2>
+    </div>
+    <div ng-show='shortlyForm.link.$error.url && shortlyForm.$dirty' class='message'>
+        <h2>Not a valid url</h2>
+    </div>
 </div>
