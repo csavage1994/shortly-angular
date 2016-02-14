@@ -29,7 +29,7 @@ angular.module('shortly.auth', [])
   };
   $scope.signout = function () {
     console.log('hi');
-    $window.localStorage.removeItem('com.shortly');
+    $window.localStorage.setItem('com.shortly', '');
     $location.path('/signin');
   };
 });
